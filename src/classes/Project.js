@@ -1,5 +1,5 @@
-import List from "./List";
 import { v4 as uuidv4 } from "uuid";
+import List from "./List";
 
 class Project {
   constructor(title, description, color) {

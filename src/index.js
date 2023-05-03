@@ -1,5 +1,5 @@
-import List from "./classes/List.js";
-import Project from "./classes/Project.js";
+import List from "./classes/List";
+import Project from "./classes/Project";
 
 function component() {
   const element = document.createElement("div");
