@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import List from "./List";
+import Todo from "./Todo";
 
 class Project {
   constructor(title, description, color) {

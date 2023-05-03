@@ -1,22 +1,13 @@
-import List from "./classes/List";
-import Project from "./classes/Project";
-import Todo from "./classes/Todo.js";
-import Project from "./classes/Project.js";
+import SideBar from "./components/Sidebar";
+import "./style.css";
 
-function component() {
-  const element = document.createElement("div");
-  const project = new Project("Title", "A short description"); 
+const Index = () => {
+  const container = document.createElement("div");
+  container.id = "content";
 
-  for (let index = 0; index < 10; index++) {
-    const todo = new Todo(index, `this is Todo number ${index}`)
-    project.addListItem(todo);
-  }
-  console.log(project);
+  container.appendChild(SideBar());
 
+  return container;
+};
 
-  element.textContent = "Hello world!"
-
-  return element;
-}
-
-document.body.appendChild(component())
+document.body.appendChild(Index());
