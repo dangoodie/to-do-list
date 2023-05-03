@@ -1,4 +1,4 @@
-import List from "./classes/List.js";
+import Todo from "./classes/Todo.js";
 import Project from "./classes/Project.js";
 
 function component() {
@@ -6,8 +6,8 @@ function component() {
   const project = new Project("Title", "A short description"); 
 
   for (let index = 0; index < 10; index++) {
-    const list = new List(index, `this is List number ${index}`)
-    project.addListItem(list);
+    const todo = new Todo(index, `this is Todo number ${index}`)
+    project.addListItem(todo);
   }
   console.log(project);
 

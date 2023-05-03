@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-class List {
+class Todo {
   constructor(title, description, dueDate, priority, note, checklist) {
     this.title = title;
     this.description = description;
@@ -12,4 +12,4 @@ class List {
   }
 }
 
-export default List;
+export default Todo;

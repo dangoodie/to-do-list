@@ -1,4 +1,4 @@
-import List from "./List";
+import Todo from "./Todo";
 import { v4 as uuidv4 } from "uuid";
 
 class Project {
@@ -11,7 +11,7 @@ class Project {
   }
 
   addListItem(title, description, dueDate, priority, note, checklist) {
-    const newList = new List(
+    const newTodo = new Todo(
       title,
       description,
       dueDate,
@@ -19,8 +19,8 @@ class Project {
       note,
       checklist
     );
-    this.list.push(newList);
-    return newList;
+    this.list.push(newTodo);
+    return newTodo;
   }
 }
 
