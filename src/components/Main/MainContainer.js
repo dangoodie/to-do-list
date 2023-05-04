@@ -9,7 +9,7 @@ const MainContainer = () => {
   container.appendChild(Greeting());
 
   const projectContainer = document.createElement("div");
-  projectContainer.className = "flex flex-row overflow-auto";
+  projectContainer.className = "project-container";
 
   const projectA = new Project(
     "Project A",

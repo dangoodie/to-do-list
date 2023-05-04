@@ -7,6 +7,7 @@
   * {
     @apply font-space-mono;
   }
+
   .sidebar {
     @apply sticky top-0 left-0 h-screen w-auto m-0 pl-2 flex flex-col bg-gray-800 text-white shadow;
   }
@@ -23,7 +24,11 @@
     @apply text-yellow-200 text-8xl text-end;
   }
 
-  .project-card-title {
-    @apply text-teal-400
+  .project-container {
+    @apply flex overflow-auto;
+  }
+
+  .card-title {
+    @apply text-yellow-300 text-4xl
   }
 }
