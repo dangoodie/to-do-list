@@ -1,5 +1,5 @@
 import Greeting from "./Greeting";
-import ProjectCard from "./ProjectCard.Js";
+import ProjectCard from "./ProjectCard";
 import Project from "../../classes/Project";
 
 const MainContainer = () => {
