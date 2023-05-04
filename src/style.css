@@ -4,10 +4,14 @@
 
 @layer components {
   .sidebar {
-    @apply fixed top-0 left-0 h-screen w-auto m-0 px-2 flex flex-col bg-gray-900 text-white shadow;
+    @apply sticky top-0 left-0 h-screen w-auto m-0 px-2 flex flex-col bg-gray-800 text-white shadow;
   }
 
   .sidebar-button {
-    @apply relative flex items-center justify-center h-12 w-full px-2 mt-2 mb-2 mx-auto shadow-lg bg-cyan-300 text-gray-900 text-center hover:bg-yellow-200 rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer font-bold
+    @apply relative flex items-center justify-center h-12 w-full px-2 py-8 mt-2 mb-2 mx-auto shadow-lg bg-cyan-300 text-gray-800 text-center hover:bg-yellow-200 rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer font-bold
+  }
+
+  .main-container {
+    @apply w-screen bg-gray-800
   }
 }
