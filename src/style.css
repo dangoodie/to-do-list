@@ -28,7 +28,11 @@
     @apply flex overflow-auto;
   }
 
+  .card {
+    @apply bg-purple-200;
+  }
+
   .card-title {
-    @apply text-yellow-300 text-4xl
+    @apply text-gray-800 text-4xl;
   }
 }
