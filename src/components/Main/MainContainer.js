@@ -17,6 +17,24 @@ const MainContainer = () => {
     "yellow"
   );
 
+  projectA.addListItem(
+    "Todo title",
+    "a short todo description",
+    "Tomorrow",
+    "High",
+    "Some notes go here",
+    "Checklist"
+  );
+
+  projectA.addListItem(
+    "Todo title",
+    "a short todo description",
+    "Tomorrow",
+    "High",
+    "Some notes go here",
+    "Checklist"
+  );
+
   const projectB = new Project(
     "Project B",
     "A description of some sort",
@@ -33,7 +51,7 @@ const MainContainer = () => {
   projectContainer.appendChild(ProjectCard(projectB));
   projectContainer.appendChild(ProjectCard(projectC));
 
-  container.appendChild(projectContainer)
+  container.appendChild(projectContainer);
 
   return container;
 };

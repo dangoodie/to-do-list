@@ -3,36 +3,44 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-@layer components {
-  * {
+@layer base {
+ * {
     @apply font-space-mono;
   }
 
+  body {
+    @apply bg-gray-800
+  }
+}
+
+@layer components {
+  
+
   .sidebar {
-    @apply sticky top-0 left-0 h-screen w-auto m-0 pl-2 flex flex-col bg-gray-800 text-white shadow;
+    @apply sticky top-0 left-0 h-screen w-auto m-0 pl-2 flex flex-col  text-white shadow;
   }
 
   .sidebar-button {
-    @apply relative flex items-center justify-center h-20 w-full px-2 py-8 mx-auto shadow-lg bg-cyan-200 text-gray-800 text-center hover:bg-yellow-200 rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer font-bold;
+    @apply relative flex items-center justify-center w-full h-24 w-24  shadow-lg bg-cyan-200 text-gray-800 text-center rounded-3xl hover:bg-yellow-200  hover:rounded-xl hover:h-28 transition-all duration-300 ease-linear cursor-pointer font-bold;
   }
 
   .main-container {
-    @apply w-screen bg-gray-800;
+    @apply flex flex-col w-screen h-screen
   }
 
   .greeting {
-    @apply text-yellow-200 text-8xl text-end;
+    @apply text-yellow-200 text-8xl font-bold text-end h-24;
   }
 
   .project-container {
-    @apply flex overflow-auto;
+    @apply flex h-full overflow-auto;
   }
 
   .card {
-    @apply bg-purple-200;
+    @apply bg-indigo-400 rounded-3xl p-4 h-fit hover:bg-yellow-200  hover:rounded-xl hover:px-8 transition-all duration-300 ease-linear cursor-pointer ;
   }
 
   .card-title {
-    @apply text-gray-800 text-4xl;
+    @apply text-gray-800 font-bold text-4xl ;
   }
 }

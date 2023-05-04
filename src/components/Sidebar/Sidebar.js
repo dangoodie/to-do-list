@@ -5,6 +5,7 @@ const SideBar = () => {
   container.className = "sidebar";
 
   container.append(
+    SideBarButton("+"),
     SideBarButton("Today"),
     SideBarButton("This Week"),
     SideBarButton("Project A"),
