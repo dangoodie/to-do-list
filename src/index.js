@@ -28,16 +28,6 @@ projectA.addListItem(
   "Checklist"
 );
 
-const projectB = new Project(
-  "Project B",
-  "A description of some sort",
-  "purple"
-);
-
-const projectC = new Project("Project C", "A description of some sort", "cyan");
-
-projects.push(projectA, projectB, projectC);
-
 const Index = () => {
   const container = document.createElement("div");
   container.classList.add("flex");
@@ -50,3 +40,19 @@ const Index = () => {
 };
 
 document.body.appendChild(Index());
+
+const newProject = document.querySelector('[data-id="add-project"]');
+
+function handleAddProject(e) {
+  projects.push(projectA);
+
+  const container = document.querySelector("#content");
+  container.innerHTML = "";
+  container.appendChild(SideBar({ projects }));
+  container.appendChild(MainContainer({ projects }));
+
+  const newProject = document.querySelector('[data-id="add-project"]');
+  newProject.addEventListener("click", handleAddProject);
+}
+
+newProject.addEventListener("click", handleAddProject);

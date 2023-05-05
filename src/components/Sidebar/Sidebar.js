@@ -5,9 +5,9 @@ const SideBar = (props) => {
   container.className = "sidebar";
 
   container.append(
-    SideBarButton("+"),
-    SideBarButton("Today"),
-    SideBarButton("This Week")
+    SideBarButton("+", "add-project"),
+    SideBarButton("Today", "today"),
+    SideBarButton("This Week", "this-week")
   );
 
   props.projects.forEach((project) => {
