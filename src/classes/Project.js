@@ -7,6 +7,7 @@ class Project {
     this.description = description;
     this.list = [];
     this.color = color;
+    this.dueDate = ""
     this.id = uuidv4();
   }
 
