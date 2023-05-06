@@ -37,7 +37,7 @@ const DisplayController = (props) => {
   // Handles adding of new projects
   let newProject = document.querySelector('[data-id="add-project"]');
 
-  function handleAddProject(e) {
+  function handleAddProject() {
     projects.push(projectA);
 
     contentDiv.innerHTML = "";

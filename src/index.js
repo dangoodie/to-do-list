@@ -1,5 +1,4 @@
 import "./style.css";
-import Project from "./classes/Project";
 import DisplayController from "./DisplayController";
 
 const projects = [];
