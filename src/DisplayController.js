@@ -30,22 +30,21 @@ const DisplayController = (props) => {
   const { projects } = props;
   const contentDiv = document.querySelector("#content");
 
-  console.log(projects)
-
+  // Initial build on load
   contentDiv.appendChild(SideBar({ projects }));
   contentDiv.appendChild(MainContainer({ projects }));
 
-  const newProject = document.querySelector('[data-id="add-project"]');
+  // Handles adding of new projects
+  let newProject = document.querySelector('[data-id="add-project"]');
 
   function handleAddProject(e) {
     projects.push(projectA);
 
-    const container = document.querySelector("#content");
-    container.innerHTML = "";
-    container.appendChild(SideBar({ projects }));
-    container.appendChild(MainContainer({ projects }));
+    contentDiv.innerHTML = "";
+    contentDiv.appendChild(SideBar({ projects }));
+    contentDiv.appendChild(MainContainer({ projects }));
 
-    const newProject = document.querySelector('[data-id="add-project"]');
+    newProject = document.querySelector('[data-id="add-project"]');
     newProject.addEventListener("click", handleAddProject);
   }
 
