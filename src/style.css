@@ -4,18 +4,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 @layer base {
- * {
+  * {
     @apply font-space-mono;
   }
 
   body {
-    @apply bg-gray-800
+    @apply bg-gray-800;
   }
 }
 
 @layer components {
-  
-
   .sidebar {
     @apply sticky top-0 left-0 h-screen w-auto m-0 pl-2 flex flex-col  text-white shadow;
   }
@@ -25,7 +23,7 @@
   }
 
   .main-container {
-    @apply flex flex-col w-screen h-screen
+    @apply flex flex-col w-screen h-screen;
   }
 
   .greeting {
@@ -37,10 +35,46 @@
   }
 
   .card {
-    @apply bg-indigo-400 rounded-3xl p-4 h-fit hover:bg-yellow-200  hover:rounded-xl hover:px-8 transition-all duration-300 ease-linear cursor-pointer ;
+    @apply bg-indigo-400 rounded-3xl p-4 h-fit hover:bg-yellow-200  hover:rounded-xl hover:px-8 transition-all duration-300 ease-linear cursor-pointer;
   }
 
   .card-title {
-    @apply text-gray-800 font-bold text-4xl ;
+    @apply text-gray-800 font-bold text-4xl;
+  }
+
+  .modal-bg {
+    @apply scale-0 fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full backdrop-blur-0 flex justify-center;
+  }
+
+  .modal-container {
+    @apply relative w-full max-w-md max-h-full bg-indigo-400 rounded-3xl p-4 h-fit;
+  }
+
+  .modal-heading {
+    @apply mb-4 text-xl font-medium text-gray-800;
+  }
+
+  .modal-close {
+    @apply absolute top-2.5 right-3 text-gray-400 bg-transparent hover:bg-indigo-300 hover:text-gray-800 rounded-xl text-sm p-0.5 ml-auto inline-flex items-center;
+  }
+
+  .modal-form {
+    @apply space-y-6
+  }
+
+  .modal-label {
+    @apply block mb-2 text-sm font-medium text-gray-800 
+  }
+
+  .modal-input {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+  }
+
+  .modal-submit {
+    @apply w-full text-gray-800 bg-indigo-300 hover:bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4
+  }
+
+  .show {
+    @apply scale-100 backdrop-blur-sm
   }
 }

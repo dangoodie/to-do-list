@@ -1,6 +1,7 @@
-import MainContainer from './components/Main/MainContainer';
-import SideBar from './components/Sidebar/Sidebar';
-import Project from './classes/Project';
+import MainContainer from "./components/Main/MainContainer";
+import SideBar from "./components/Sidebar/Sidebar";
+import Project from "./classes/Project";
+import Modal from "./components/Main/Modal";
 
 const projectA = new Project(
   "Project A",
@@ -33,22 +34,22 @@ const DisplayController = (props) => {
   // Initial build on load
   contentDiv.appendChild(SideBar({ projects }));
   contentDiv.appendChild(MainContainer({ projects }));
+  contentDiv.appendChild(Modal());
 
   // Handles adding of new projects
   let newProject = document.querySelector('[data-id="add-project"]');
 
-  function handleAddProject() {
-    projects.push(projectA);
+  function handleAddBtn() {
+    const modalBg = document.querySelector(".modal-bg")
+    modalBg.classList.add("show");
 
-    contentDiv.innerHTML = "";
-    contentDiv.appendChild(SideBar({ projects }));
-    contentDiv.appendChild(MainContainer({ projects }));
-
-    newProject = document.querySelector('[data-id="add-project"]');
-    newProject.addEventListener("click", handleAddProject);
+    const modalClose = document.querySelector(".close-btn")
+    modalClose.addEventListener("click", (e) => {
+      modalBg.classList.remove("show");
+    })
   }
 
-  newProject.addEventListener("click", handleAddProject);
+  newProject.addEventListener("click", handleAddBtn);
 };
 
 export default DisplayController;
