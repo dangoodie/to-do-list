@@ -28,6 +28,7 @@ const DisplayController = (props) => {
       modalBg.classList.remove("show");
     });
   }
+  newProjectBtn.addEventListener("click", handleAddBtn);
 
   // Handles new project data
   const newProjectForm = document.querySelector("form");
@@ -44,8 +45,6 @@ const DisplayController = (props) => {
     projects.push(newProject);
     updateDisplay();
   });
-
-  newProjectBtn.addEventListener("click", handleAddBtn);
 };
 
 export default DisplayController;

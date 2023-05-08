@@ -23,8 +23,6 @@ const Modal = () => {
 
   const form = document.createElement("form");
   form.className = "modal-form";
-  // form.action = "";
-  // form.method = "post";
 
   const titleDiv = document.createElement("div");
 
