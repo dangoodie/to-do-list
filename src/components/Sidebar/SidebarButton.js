@@ -1,16 +1,19 @@
 const SideBarButton = (props) => {
-  const {title, id, img} = props;
+  const { title, className, id, img } = props;
 
   const container = document.createElement("div");
+  
   container.className = "sidebar-button";
+  if (className !== undefined) container.classList.add(className);
+
   if (id !== undefined) container.dataset.id = id;
 
   if (img !== undefined) {
-      container.appendChild(img);
+    container.appendChild(img);
   } else {
-      container.textContent = title;
+    container.textContent = title;
   }
-  
+
   return container;
 };
 

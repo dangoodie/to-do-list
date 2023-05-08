@@ -23,7 +23,8 @@ const Modal = () => {
 
   const form = document.createElement("form");
   form.className = "modal-form";
-  form.action = "#"
+  // form.action = "";
+  // form.method = "post";
 
   const titleDiv = document.createElement("div");
 
@@ -34,10 +35,11 @@ const Modal = () => {
 
   const titleInput = document.createElement("input");
   titleInput.className = "modal-input";
+  titleInput.name = "title";
   titleInput.type = "text";
   titleInput.id = "title";
 
-  titleDiv.append(titleLabel, titleInput);  
+  titleDiv.append(titleLabel, titleInput);
 
   const descriptionDiv = document.createElement("div");
 
@@ -47,16 +49,17 @@ const Modal = () => {
   descriptionLabel.textContent = "Description";
 
   const descriptionInput = document.createElement("textarea");
-  descriptionInput.rows = "5"
+  descriptionInput.name = "description";
+  descriptionInput.rows = "5";
   descriptionInput.className = "modal-input";
   descriptionInput.id = "description";
 
   const submitBtn = document.createElement("button");
-  submitBtn.className = "modal-submit"
-  submitBtn.type = "submit"
-  submitBtn.textContent = "Submit"
+  submitBtn.className = "modal-submit";
+  submitBtn.type = "submit";
+  submitBtn.textContent = "Submit";
 
-  descriptionDiv.append(descriptionLabel, descriptionInput, submitBtn);  
+  descriptionDiv.append(descriptionLabel, descriptionInput, submitBtn);
 
   form.append(titleDiv, descriptionDiv);
 

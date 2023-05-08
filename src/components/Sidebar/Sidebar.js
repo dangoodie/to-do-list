@@ -8,9 +8,9 @@ const SideBar = (props) => {
   const addIcon = new Image();
   addIcon.src = muiAdd;
 
-  const addBtn = { title: "+", id: "add-project", img: addIcon };
-  const todayBtn = { title: "Today", id: "today" };
-  const weekBtn = { title: "This Week", id: "this-week" };
+  const addBtn = { title: "+", className: "add-project", img: addIcon };
+  const todayBtn = { title: "Today", className: "today" };
+  const weekBtn = { title: "This Week", className: "this-week" };
 
   container.append(
     SideBarButton(addBtn),

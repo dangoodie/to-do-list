@@ -2,9 +2,9 @@ import { v4 as uuidv4 } from "uuid";
 import Todo from "./Todo";
 
 class Project {
-  constructor(title, description) {
-    this.title = title;
-    this.description = description;
+  constructor(props) {
+    this.title = props.title;
+    this.description = props.description;
     this.list = [];
     this.dueDate = ""
     this.id = uuidv4();
