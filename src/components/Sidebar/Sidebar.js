@@ -1,4 +1,4 @@
-import SideBarButton from "./SidebarButton";
+import SidebarButton from "./SidebarButton";
 import muiAdd from "../../assets/mui_add.svg";
 
 const SideBar = (props) => {
@@ -13,13 +13,13 @@ const SideBar = (props) => {
   const weekBtn = { title: "This Week", className: "this-week" };
 
   container.append(
-    SideBarButton(addBtn),
-    SideBarButton(todayBtn),
-    SideBarButton(weekBtn)
+    SidebarButton(addBtn),
+    SidebarButton(todayBtn),
+    SidebarButton(weekBtn)
   );
 
   props.projects.forEach((project) => {
-    container.appendChild(SideBarButton(project));
+    container.appendChild(SidebarButton(project));
   });
 
   return container;
