@@ -15,8 +15,6 @@ const DisplayController = (props) => {
     contentDiv.appendChild(MainContainer({ projects }));
     contentDiv.appendChild(Modal());
 
-    const newProjectBtn = document.querySelector(".add-project");
-
     // Handles new project button
     function handleAddBtn(event) {
       event.preventDefault();
@@ -29,6 +27,8 @@ const DisplayController = (props) => {
         modalBg.classList.remove("show");
       });
     }
+    
+    const newProjectBtn = document.querySelector(".add-project");
     newProjectBtn.addEventListener("click", handleAddBtn);
 
     // Handles new project data from modal

@@ -1,4 +1,5 @@
 import defaultProjects from "./defaultProjects"; // for testing
+import Project from "../classes/Project";
 
 // checks if localStorage is available and returns a boolean
 function storageAvailable(type) {
@@ -49,12 +50,12 @@ const getProjects = () => {
 
   if (!parsedProjects || parsedProjects.length === 0) {
     defaultProjects.forEach((project) => {
-      projects.push(project);
+      projects.push(new Project(project));
       saveProjects(projects);
     });
   } else {
     parsedProjects.forEach((project) => {
-      projects.push(project);
+      projects.push(new Project(project));
     });
   }
 
