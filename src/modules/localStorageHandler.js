@@ -40,17 +40,20 @@ const saveProjects = (projects) => {
 
 // returns an array of projects from localStorage
 const getProjects = () => {
+  const projects = [];
   if (!storageAvailable("localStorage")) {
-    return [];
+    defaultProjects.forEach((project) => {
+      projects.push(project);
+    });
+    return projects;
   }
 
-  const projects = [];
   const projectsJSON = localStorage.getItem("projects");
   const parsedProjects = JSON.parse(projectsJSON);
 
   if (!parsedProjects || parsedProjects.length === 0) {
     defaultProjects.forEach((project) => {
-      projects.push(new Project(project));
+      projects.push(project);
       saveProjects(projects);
     });
   } else {
