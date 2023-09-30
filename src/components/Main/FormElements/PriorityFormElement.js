@@ -2,7 +2,7 @@ const PriorityFormElement = () => {
   const priorityDiv = document.createElement("div");
 
   const priorityLabel = document.createElement("label");
-  priorityLabel.className = "modal-label";
+  priorityLabel.className = "";
   priorityLabel.htmlFor = "priority";
   priorityLabel.textContent = "Priority";
 
