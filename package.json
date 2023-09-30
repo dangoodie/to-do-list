@@ -1,13 +1,15 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
+  "homepage": "https://dangoodie.github.io/to-do-list/",
   "description": "A detailed todo list written in javascript that will allow you to track lists across multiple projects.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve",
     "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch", 
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "Daniel Gooden",
@@ -19,6 +21,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
+    "gh-pages": "^6.0.0",
     "html-webpack-plugin": "^5.5.1",
     "postcss": "^8.4.23",
     "postcss-loader": "^7.3.0",
