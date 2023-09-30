@@ -2,7 +2,7 @@ import MainContainer from "./components/Main/MainContainer";
 import SideBar from "./components/Sidebar/Sidebar";
 import Project from "./classes/Project";
 import Modal from "./components/Main/Modal";
-import { saveProjects } from "./localStorageHandler";
+import { saveProjects } from "./modules/localStorageHandler";
 
 const DisplayController = (props) => {
   const { projects } = props;
@@ -30,8 +30,8 @@ const DisplayController = (props) => {
     }
     newProjectBtn.addEventListener("click", handleAddBtn);
 
-    // Handles new project data
-    const newProjectForm = document.querySelector("form");
+    // Handles new project data from modal
+    const newProjectForm = document.querySelector(".modal-form");
     newProjectForm.addEventListener("submit", (event) => {
       event.preventDefault();
 

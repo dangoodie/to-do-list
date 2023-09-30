@@ -27,15 +27,12 @@ const Modal = () => {
   heading.textContent = "Create a new project";
 
   const form = document.createElement("form");
+  form.className = "modal-form";
 
   const titleDiv = TitleFormElement();
-
   const descriptionDiv = DescriptionFormElement();
-
   const dueDateDiv = DueDateFormElement();
-
   const priorityDiv = PriorityFormElement();
-
   const submitBtn = SubmitFormElement();
 
   form.append(titleDiv, descriptionDiv, dueDateDiv, priorityDiv, submitBtn);

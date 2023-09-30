@@ -61,6 +61,4 @@ const getProjects = () => {
   return projects;
 };
 
-
-
 export { getProjects, saveProjects };
