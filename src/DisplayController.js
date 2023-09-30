@@ -67,6 +67,7 @@ const DisplayController = (props) => {
       btn.addEventListener("click", (event) => {
         console.log("clicked");
         event.preventDefault();
+        
       });
     });
   }

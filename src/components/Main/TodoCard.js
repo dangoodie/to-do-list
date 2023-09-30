@@ -27,7 +27,7 @@ const TodoCard = (todo) => {
   checklist.className = "todo-checklist";
   checklist.textContent = todo.checklist;
 
-  container.append(title, description, dueDate, priority)
+  container.append(title, description, dueDate, priority, note, checklist)
 
   return container;
 }
