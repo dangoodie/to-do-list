@@ -39,11 +39,23 @@ const DisplayController = (props) => {
 
       const data = new FormData(event.target);
       const values = Object.fromEntries(data.entries());
-      console.log(values);
-
       const newProject = new Project(values);
       projects.push(newProject);
       updateDisplay();
+    });
+
+    // Handles project card close button
+    const closeBtns = document.querySelectorAll(".close-btn");
+    closeBtns.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const card = btn.closest(".card");
+        const { id } = card.dataset;
+        const index = projects.findIndex((project) => project.id === id);
+        projects.splice(index, 1);
+        updateDisplay();
+      });
     });
   }
   updateDisplay();

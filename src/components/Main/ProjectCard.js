@@ -1,9 +1,20 @@
 import TodoCard from "./TodoCard";
+import muiClose from "../../assets/mui_close.svg";
+
 
 const ProjectCard = (project) => {
   const container = document.createElement("div");
   container.className = "card";
   container.dataset.id = project.id;
+
+  const closeBtn = document.createElement("button");
+  closeBtn.type = "button";
+  closeBtn.className = "close-btn";
+
+  const closeImg = new Image();
+  closeImg.src = muiClose;
+  closeImg.className = "card-close";
+  closeBtn.appendChild(closeImg);
 
   const title = document.createElement("h3");
   title.className = "card-title";
@@ -21,9 +32,7 @@ const ProjectCard = (project) => {
   priority.className = "card-priority";
   priority.textContent = project.priority;
 
-  container.append(title, description, dueDate, priority);
-
-  console.log(project);
+  container.append(closeBtn, title, description, dueDate, priority);
 
   project.list.forEach((todo) => {
     container.appendChild(TodoCard(todo));
