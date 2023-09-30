@@ -15,7 +15,7 @@ const Modal = () => {
 
   const closeBtn = document.createElement("button");
   closeBtn.type = "button";
-  closeBtn.className = "close-btn";
+  closeBtn.className = "modal-close-btn";
 
   const closeImg = new Image();
   closeImg.src = muiClose;
@@ -27,22 +27,16 @@ const Modal = () => {
   heading.textContent = "Create a new project";
 
   const form = document.createElement("form");
-  form.className = "modal-form";
 
   const titleDiv = TitleFormElement();
-  titleDiv.className = "modal-title";
 
   const descriptionDiv = DescriptionFormElement();
-  descriptionDiv.className = "modal-description";
 
   const dueDateDiv = DueDateFormElement();
-  dueDateDiv.className = "modal-due-date";
 
   const priorityDiv = PriorityFormElement();
-  priorityDiv.className = "modal-priority";
 
   const submitBtn = SubmitFormElement();
-  submitBtn.className = "modal-submit";
 
   form.append(titleDiv, descriptionDiv, dueDateDiv, priorityDiv, submitBtn);
 

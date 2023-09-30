@@ -23,7 +23,7 @@ const DisplayController = (props) => {
       const modalBg = document.querySelector(".modal-bg");
       modalBg.classList.add("show");
 
-      const modalClose = document.querySelector(".close-btn");
+      const modalClose = document.querySelector(".modal-close-btn");
       modalClose.addEventListener("click", () => {
         modalBg.classList.remove("show");
       });
@@ -47,7 +47,7 @@ const DisplayController = (props) => {
     });
 
     // Handles project card close button
-    const closeBtns = document.querySelectorAll(".close-btn");
+    const closeBtns = document.querySelectorAll(".project-close-btn");
     closeBtns.forEach((btn) => {
       btn.addEventListener("click", (event) => {
         event.preventDefault();

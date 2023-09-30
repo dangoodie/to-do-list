@@ -9,7 +9,7 @@ const ProjectCard = (project) => {
 
   const closeBtn = document.createElement("button");
   closeBtn.type = "button";
-  closeBtn.className = "close-btn";
+  closeBtn.className = "project-close-btn";
 
   const closeImg = new Image();
   closeImg.src = muiClose;
