@@ -74,6 +74,14 @@ const DisplayController = (props) => {
         const projectCard = btn.closest(".card");
         const addTodoForm = AddTodoForm();
         projectCard.appendChild(addTodoForm);
+
+        const cancelBtn = document.querySelector(".cancel-btn");
+        cancelBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          btn.classList.remove("hide");
+          addTodoForm.remove();
+        });
       });
     });
   }

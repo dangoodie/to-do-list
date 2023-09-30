@@ -1,7 +1,7 @@
 const CancelButtonFormElement = () => {
   const cancelButton = document.createElement('button');
   cancelButton.type = 'button';
-  cancelButton.className = 'form-cancel';
+  cancelButton.className = 'cancel-btn';
   cancelButton.textContent = 'Cancel';
 
   return cancelButton;
