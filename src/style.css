@@ -77,4 +77,8 @@
   .show {
     @apply scale-100 backdrop-blur-sm;
   }
+
+  .hide {
+    @apply hidden;
+  }
 }

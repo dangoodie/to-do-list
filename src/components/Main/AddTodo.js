@@ -1,17 +1,13 @@
-import muiClose from "../../assets/mui_close.svg";
+import TitleFormElement from "./FormElements/TitleFormElement";
+import DescriptionFormElement from "./FormElements/DescriptionFormElement";
+import DueDateFormElement from "./FormElements/DueDateFormElement";
+import PriorityFormElement from "./FormElements/PriorityFormElement";
+import SubmitFormElement from "./FormElements/SubmitFormElement";
+import CancelButtonFormElement from "./FormElements/CancelButtonFormElement";
 
-const AddTodo = () => {
+const AddTodoForm = () => {
   const container = document.createElement("div");
   container.className = "add-todo";
-
-  const closeBtn = document.createElement("button");
-  closeBtn.type = "button";
-  closeBtn.className = "close-btn";
-
-  const closeImg = new Image();
-  closeImg.src = muiClose;
-  closeImg.className = "add-todo-close";
-  closeBtn.appendChild(closeImg);
 
   const title = document.createElement("h3");
   title.className = "add-todo-heading";
@@ -20,20 +16,25 @@ const AddTodo = () => {
   const form = document.createElement("form");
   form.className = "add-todo-form";
 
-  const titleDiv = document.createElement("div");
+  const titleDiv = TitleFormElement();
+  const descriptionDiv = DescriptionFormElement();
+  const dueDateDiv = DueDateFormElement();
+  const priorityDiv = PriorityFormElement();
+  const submitBtn = SubmitFormElement();
+  const cancelBtn = CancelButtonFormElement();
 
-  const titleLabel = document.createElement("label");
-  titleLabel.className = "modal-label";
-  titleLabel.htmlFor = "title";
-  titleLabel.textContent = "Title";
+  form.append(
+    titleDiv,
+    descriptionDiv,
+    dueDateDiv,
+    priorityDiv,
+    submitBtn,
+    cancelBtn
+  );
 
-  const titleInput = document.createElement("input");
-  titleInput.className = "modal-input";
-  titleInput.name = "title";
-  titleInput.type = "text";
-  titleInput.id = "title";
+  container.append(title, form);
 
-  titleDiv.append(titleLabel, titleInput);
-}
+  return container;
+};
 
-export default AddTodo;
+export default AddTodoForm;

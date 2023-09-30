@@ -1,8 +1,9 @@
-import MainContainer from "./components/Main/MainContainer";
-import SideBar from "./components/Sidebar/Sidebar";
-import Project from "./classes/Project";
-import Modal from "./components/Main/Modal";
-import { saveProjects } from "./modules/localStorageHandler";
+import MainContainer from "../components/Main/MainContainer";
+import SideBar from "../components/Sidebar/Sidebar";
+import Project from "../classes/Project";
+import Modal from "../components/Main/Modal";
+import { saveProjects } from "./localStorageHandler";
+import AddTodoForm from "../components/Main/AddTodo";
 
 const DisplayController = (props) => {
   const { projects } = props;
@@ -65,9 +66,14 @@ const DisplayController = (props) => {
     const addTodoBtns = document.querySelectorAll(".add-todo");
     addTodoBtns.forEach((btn) => {
       btn.addEventListener("click", (event) => {
-        console.log("clicked");
+        console.log("add todo clicked");
         event.preventDefault();
-        
+
+        btn.classList.add("hide");
+
+        const projectCard = btn.closest(".card");
+        const addTodoForm = AddTodoForm();
+        projectCard.appendChild(addTodoForm);
       });
     });
   }

@@ -1,5 +1,5 @@
 import "./style.css";
-import DisplayController from "./DisplayController";
+import DisplayController from "./modules/DisplayController";
 import { getProjects } from "./modules/localStorageHandler";
 
 const projects = getProjects();
