@@ -66,7 +66,6 @@ const DisplayController = (props) => {
     const addTodoBtns = document.querySelectorAll(".add-todo");
     addTodoBtns.forEach((btn) => {
       btn.addEventListener("click", (event) => {
-        console.log("add todo clicked");
         event.preventDefault();
 
         btn.classList.add("hide");
