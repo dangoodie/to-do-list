@@ -18,7 +18,7 @@ const DisplayController = (props) => {
     // Handles new project button
     function handleAddBtn(event) {
       event.preventDefault();
-      
+
       const modalBg = document.querySelector(".modal-bg");
       modalBg.classList.add("show");
 
@@ -39,12 +39,11 @@ const DisplayController = (props) => {
 
       const data = new FormData(event.target);
       const values = Object.fromEntries(data.entries());
+      console.log(values);
 
       const newProject = new Project(values);
       projects.push(newProject);
       updateDisplay();
-
-
     });
   }
   updateDisplay();

@@ -52,14 +52,57 @@ const Modal = () => {
   descriptionInput.className = "modal-input";
   descriptionInput.id = "description";
 
+  descriptionDiv.append(descriptionLabel, descriptionInput);
+
+  const dueDateDiv = document.createElement("div");
+
+  const dueDateLabel = document.createElement("label");
+  dueDateLabel.className = "modal-label";
+  dueDateLabel.htmlFor = "due-date";
+  dueDateLabel.textContent = "Due Date";
+
+  const dueDateInput = document.createElement("input");
+  dueDateInput.type = "date";
+  dueDateInput.className = "modal-input";
+  dueDateInput.id = "due-date";
+  dueDateInput.name = "dueDate";
+
+  dueDateDiv.append(dueDateLabel, dueDateInput);
+
+  const priorityDiv = document.createElement("div");
+
+  const priorityLabel = document.createElement("label");
+  priorityLabel.className = "modal-label";
+  priorityLabel.htmlFor = "priority";
+  priorityLabel.textContent = "Priority";
+
+  const priorityInput = document.createElement("select");
+  priorityInput.className = "modal-input";
+  priorityInput.id = "priority";
+  priorityInput.name = "priority";
+
+  const option1 = document.createElement("option");
+  option1.value = "low";
+  option1.textContent = "Low";
+
+  const option2 = document.createElement("option");
+  option2.value = "medium";
+  option2.textContent = "Medium";
+
+  const option3 = document.createElement("option");
+  option3.value = "high";
+  option3.textContent = "High";
+
+  priorityInput.append(option1, option2, option3);
+
+  priorityDiv.append(priorityLabel, priorityInput);
+
   const submitBtn = document.createElement("button");
   submitBtn.className = "modal-submit";
   submitBtn.type = "submit";
   submitBtn.textContent = "Submit";
 
-  descriptionDiv.append(descriptionLabel, descriptionInput, submitBtn);
-
-  form.append(titleDiv, descriptionDiv);
+  form.append(titleDiv, descriptionDiv, dueDateDiv, priorityDiv, submitBtn);
 
   modalDiv.append(closeBtn, heading, form);
 

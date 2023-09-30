@@ -5,12 +5,14 @@ class Project {
   constructor(props) {
     this.title = props.title;
     this.description = props.description;
+    this.dueDate = props.dueDate;
+    this.priority = props.priority;
     this.list = [];
-    this.dueDate = ""
     this.id = uuidv4();
   }
 
-  addListItem(title, description, dueDate, priority, note, checklist) {
+  addListItem(props) {
+    const { title, description, dueDate, priority, note, checklist } = props;
     const newTodo = new Todo(
       title,
       description,

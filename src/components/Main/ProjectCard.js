@@ -2,7 +2,7 @@ import TodoCard from "./TodoCard";
 
 const ProjectCard = (project) => {
   const container = document.createElement("div");
-  container.className = "card"
+  container.className = "card";
   container.dataset.id = project.id;
 
   const title = document.createElement("h3");
@@ -13,13 +13,21 @@ const ProjectCard = (project) => {
   description.className = "card-description";
   description.textContent = project.description;
 
-  container.append(title, description);
+  const dueDate = document.createElement("p");
+  dueDate.className = "card-due-date";
+  dueDate.textContent = project.dueDate;
 
-  project.list.forEach(todo => {
+  const priority = document.createElement("p");
+  priority.className = "card-priority";
+  priority.textContent = project.priority;
+
+  container.append(title, description, dueDate, priority);
+
+  console.log(project);
+
+  project.list.forEach((todo) => {
     container.appendChild(TodoCard(todo));
   });
-
-  
 
   return container;
 };
