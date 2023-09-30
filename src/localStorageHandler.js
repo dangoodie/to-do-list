@@ -28,6 +28,15 @@ function storageAvailable(type) {
   }
 }
 
+// saves an array of projects to localStorage
+const saveProjects = (projects) => {
+  if (!storageAvailable("localStorage")) {
+    return;
+  }
+
+  localStorage.setItem("projects", JSON.stringify(projects));
+};
+
 // returns an array of projects from localStorage
 const getProjects = () => {
   if (!storageAvailable("localStorage")) {
@@ -42,6 +51,7 @@ const getProjects = () => {
   if (!parsedProjects || parsedProjects.length === 0) {
     defaultProjects.forEach((project) => {
       projects.push(project);
+      saveProjects(projects);
     });
   } else {
     parsedProjects.forEach((project) => {
@@ -52,13 +62,6 @@ const getProjects = () => {
   return projects;
 };
 
-// saves an array of projects to localStorage
-const saveProjects = (projects) => {
-  if (!storageAvailable("localStorage")) {
-    return;
-  }
 
-  localStorage.setItem("projects", JSON.stringify(projects));
-};
 
 export { getProjects, saveProjects };

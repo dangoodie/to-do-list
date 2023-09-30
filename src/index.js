@@ -1,9 +1,8 @@
 import "./style.css";
 import DisplayController from "./DisplayController";
-import { getProjects, saveProjects } from "./localStorageHandler";
+import { getProjects } from "./localStorageHandler";
 
 const projects = getProjects();
-saveProjects(projects);
 
 const Index = () => {
   const container = document.createElement("div");
