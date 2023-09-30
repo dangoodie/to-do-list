@@ -1,5 +1,6 @@
 import defaultProjects from "./defaultProjects"; // for testing
 
+// checks if localStorage is available and returns a boolean
 function storageAvailable(type) {
   let storage;
   try {
@@ -27,20 +28,37 @@ function storageAvailable(type) {
   }
 }
 
-function populateProjects() {
-
+// returns an array of projects from localStorage
+const getProjects = () => {
   if (!storageAvailable("localStorage")) {
-   console.log("Local storage is not available");
     return [];
   }
 
-  console.log("Local storage is available");
-
   const projects = [];
-  defaultProjects.forEach((project) => {
-    projects.push(project);
-  });
-  return projects;
-}
+  const projectsJSON = localStorage.getItem("projects");
 
-export default populateProjects;
+  const parsedProjects = JSON.parse(projectsJSON);
+
+  if (!parsedProjects || parsedProjects.length === 0) {
+    defaultProjects.forEach((project) => {
+      projects.push(project);
+    });
+  } else {
+    parsedProjects.forEach((project) => {
+      projects.push(project);
+    });
+  }
+
+  return projects;
+};
+
+// saves an array of projects to localStorage
+const saveProjects = (projects) => {
+  if (!storageAvailable("localStorage")) {
+    return;
+  }
+
+  localStorage.setItem("projects", JSON.stringify(projects));
+};
+
+export { getProjects, saveProjects };

@@ -2,6 +2,8 @@ import MainContainer from "./components/Main/MainContainer";
 import SideBar from "./components/Sidebar/Sidebar";
 import Project from "./classes/Project";
 import Modal from "./components/Main/Modal";
+import { saveProjects } from "./localStorageHandler";
+
 
 const DisplayController = (props) => {
   const { projects } = props;
@@ -41,6 +43,7 @@ const DisplayController = (props) => {
       const values = Object.fromEntries(data.entries());
       const newProject = new Project(values);
       projects.push(newProject);
+      saveProjects(projects);
       updateDisplay();
     });
 
@@ -54,6 +57,7 @@ const DisplayController = (props) => {
         const { id } = card.dataset;
         const index = projects.findIndex((project) => project.id === id);
         projects.splice(index, 1);
+        saveProjects(projects);
         updateDisplay();
       });
     });
