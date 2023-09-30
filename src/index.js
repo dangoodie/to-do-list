@@ -1,12 +1,9 @@
 import "./style.css";
 import DisplayController from "./DisplayController";
-import defaultProjects from "./defaultProjects";
+import populateProjects from "./localStorageHandler";
 
-const projects = [];
+const projects = populateProjects();
 
-defaultProjects.forEach((project) => {
-  projects.push(project);
-});
 
 const Index = () => {
   const container = document.createElement("div");
