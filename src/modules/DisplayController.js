@@ -82,6 +82,20 @@ const DisplayController = (props) => {
           btn.classList.remove("hide");
           addTodoForm.remove();
         });
+
+        const submitBtn = document.querySelector(".form-submit");
+        submitBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const form = e.target.closest("form");
+          const data = new FormData(form);
+          const values = Object.fromEntries(data.entries());
+          const { id } = projectCard.dataset;
+          const project = projects.find((proj) => proj.id === id);
+          project.addListItem(values);
+          saveProjects(projects);
+          updateDisplay();
+        });
       });
     });
   }
