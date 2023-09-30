@@ -24,6 +24,10 @@ class Project {
     this.list.push(newTodo);
     return newTodo;
   }
+
+  removeListItem(id) {
+    this.list = this.list.filter((todo) => todo.id !== id);
+  }
 }
 
 export default Project;

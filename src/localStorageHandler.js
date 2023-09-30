@@ -45,7 +45,6 @@ const getProjects = () => {
 
   const projects = [];
   const projectsJSON = localStorage.getItem("projects");
-
   const parsedProjects = JSON.parse(projectsJSON);
 
   if (!parsedProjects || parsedProjects.length === 0) {

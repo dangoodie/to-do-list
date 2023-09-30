@@ -38,6 +38,12 @@ const ProjectCard = (project) => {
     container.appendChild(TodoCard(todo));
   });
 
+  const addTodoBtn = document.createElement("button");
+  addTodoBtn.type = "button";
+  addTodoBtn.className = "add-todo";
+  addTodoBtn.textContent = "+ Add Todo";
+  container.appendChild(addTodoBtn);
+
   return container;
 };
 

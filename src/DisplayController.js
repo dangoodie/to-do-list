@@ -4,7 +4,6 @@ import Project from "./classes/Project";
 import Modal from "./components/Main/Modal";
 import { saveProjects } from "./localStorageHandler";
 
-
 const DisplayController = (props) => {
   const { projects } = props;
   const contentDiv = document.querySelector("#content");
@@ -59,6 +58,15 @@ const DisplayController = (props) => {
         projects.splice(index, 1);
         saveProjects(projects);
         updateDisplay();
+      });
+    });
+
+    // Handles add todo button
+    const addTodoBtns = document.querySelectorAll(".add-todo");
+    addTodoBtns.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        console.log("clicked");
+        event.preventDefault();
       });
     });
   }
