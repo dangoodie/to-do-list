@@ -97,6 +97,23 @@ const DisplayController = (props) => {
         });
       });
     });
+
+    // Handles delete todo button
+    const deleteTodoBtns = document.querySelectorAll(".todo-delete-btn");
+    deleteTodoBtns.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const card = btn.closest(".todo-card");
+        const { id } = card.dataset;
+        const projectCard = card.closest(".card");
+        const { id: projectId } = projectCard.dataset;
+        const project = projects.find((proj) => proj.id === projectId);
+        project.removeListItem(id);
+        saveProjects(projects);
+        updateDisplay();
+      });
+    });
   }
   updateDisplay();
 };

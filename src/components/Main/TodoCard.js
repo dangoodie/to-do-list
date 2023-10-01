@@ -27,7 +27,11 @@ const TodoCard = (todo) => {
   checklist.className = "todo-checklist";
   checklist.textContent = todo.checklist;
 
-  container.append(title, description, dueDate, priority, note, checklist)
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "todo-delete-btn";
+  deleteBtn.textContent = "Delete";
+
+  container.append(title, description, dueDate, priority, note, checklist, deleteBtn)
 
   return container;
 }
