@@ -58,7 +58,13 @@ const getProjects = () => {
     });
   } else {
     parsedProjects.forEach((project) => {
-      projects.push(new Project(project));
+      const tempProject = new Project(project);
+
+      project.list.forEach((todo) => {
+        tempProject.addListItem(todo);
+      });
+
+      projects.push(tempProject);
     });
   }
 
