@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve",
     "build": "webpack",
-    "watch": "webpack --watch", 
+    "watch": "webpack --watch",
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],
@@ -34,7 +34,7 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
-    "moment": "^2.29.4",
+    "luxon": "^3.4.3",
     "uuid": "^9.0.0"
   }
 }

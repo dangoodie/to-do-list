@@ -1,11 +1,11 @@
-import moment from "moment";
+const { DateTime } = require("luxon");
 
 const Greeting = () => {
   const container = document.createElement("div");
   container.className = "greeting";
 
   function getGreeting() {
-    const hour = moment().format("k");
+    const { hour } = DateTime.now();
 
     if (hour < 12) container.textContent = "Good Morning";
     if (hour >= 12 && hour < 17) container.textContent = "Good Afternoon";
