@@ -4,8 +4,12 @@ const TodoCard = (todo) => {
   container.dataset.id = todo.id;
 
   const title = document.createElement("h4");
-  title.className = "todo-title";
+  title.classList.add("todo-title");
+  title.classList.add("dropdown-btn");
   title.textContent = todo.title;
+
+  const dropdown = document.createElement("div");
+  dropdown.className = "dropdown-content hide";
 
   const description = document.createElement("p");
   description.className = "todo-description";
@@ -31,9 +35,11 @@ const TodoCard = (todo) => {
   deleteBtn.className = "todo-delete-btn";
   deleteBtn.textContent = "Delete";
 
-  container.append(title, description, dueDate, priority, note, checklist, deleteBtn)
+  dropdown.append(description, dueDate, priority, note, checklist, deleteBtn);
+
+  container.append(title, dropdown);
 
   return container;
-}
+};
 
 export default TodoCard;

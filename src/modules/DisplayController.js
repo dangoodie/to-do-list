@@ -114,6 +114,18 @@ const DisplayController = (props) => {
         updateDisplay();
       });
     });
+
+    // Dropdown Controller for Todo Cards
+    const todoCards = document.querySelectorAll(".todo-card");
+    todoCards.forEach((card) => {
+      const dropdownBtn = card.querySelector(".dropdown-btn");
+      dropdownBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const dropdownContent = card.querySelector(".dropdown-content");
+        dropdownContent.classList.toggle("hide");
+      });
+    });
   }
   updateDisplay();
 };
