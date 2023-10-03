@@ -1,9 +1,12 @@
 import SidebarButton from "./SidebarButton";
 import muiAdd from "../../assets/mui_add.svg";
+import SearchBar from "./SearchBar";
 
 const SideBar = (props) => {
   const container = document.createElement("div");
   container.className = "sidebar";
+
+  const searchBar = SearchBar();
 
   const addIcon = new Image();
   addIcon.src = muiAdd;
@@ -14,6 +17,7 @@ const SideBar = (props) => {
   const weekBtn = { title: "This Week", className: "this-week-projects" };
 
   container.append(
+    searchBar,
     SidebarButton(addBtn),
     SidebarButton(allBtn),
     SidebarButton(todayBtn),

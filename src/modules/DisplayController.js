@@ -5,7 +5,7 @@ import Modal from "../components/Main/Modal";
 import { saveProjects } from "./localStorageHandler";
 import AddTodoForm from "../components/Main/AddTodo";
 
-function setActiveBtn(selector) {
+function setActive(selector = ".all-projects") {
   const btn = document.querySelector(selector);
   btn.classList.add("active");
 }
@@ -148,7 +148,7 @@ const DisplayController = (props) => {
       displayProjects = projects;
       updateDisplay();
 
-      setActiveBtn(".all-projects");
+      setActive(".all-projects");
     });
 
     // Handle Today Projects button
@@ -164,7 +164,7 @@ const DisplayController = (props) => {
 
       updateDisplay();
 
-      setActiveBtn(".today-projects");
+      setActive(".today-projects");
     });
 
     // Handle This Week Projects button
@@ -180,7 +180,7 @@ const DisplayController = (props) => {
 
       updateDisplay();
 
-      setActiveBtn(".this-week-projects");
+      setActive(".this-week-projects");
     });
 
     // Handles Individual Project buttons
@@ -195,7 +195,7 @@ const DisplayController = (props) => {
 
         updateDisplay();
 
-        setActiveBtn(`.project-btn[data-id="${id}"]`);
+        setActive(`.project-btn[data-id="${id}"]`);
       });
     });
   }
@@ -204,8 +204,7 @@ const DisplayController = (props) => {
   updateDisplay();
 
   // set All Projects as default active button
-  const allProjectsBtn = document.querySelector(".all-projects");
-  allProjectsBtn.classList.add("active");
+  setActive();
 }
 
 export default DisplayController;
