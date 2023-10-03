@@ -44,6 +44,8 @@ const DisplayController = (props) => {
         const { id } = card.dataset;
         const index = projects.findIndex((project) => project.id === id);
         projects.splice(index, 1);
+        displayProjects.splice(index, 1);
+        
         saveProjects(projects);
         updateDisplay();
       });
@@ -80,6 +82,7 @@ const DisplayController = (props) => {
           const project = projects.find((proj) => proj.id === id);
           project.addListItem(values);
           saveProjects(projects);
+    
           updateDisplay();
         });
       });
@@ -98,7 +101,7 @@ const DisplayController = (props) => {
         const project = projects.find((proj) => proj.id === projectId);
         project.removeListItem(id);
         saveProjects(projects);
-        displayProjects = projects
+
         updateDisplay();
       });
     });
