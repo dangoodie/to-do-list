@@ -38,13 +38,14 @@ const DisplayController = (props) => {
     closeBtns.forEach((btn) => {
       btn.addEventListener("click", (event) => {
         event.preventDefault();
+        console.log("triggered")
 
         const card = btn.closest(".card");
         const { id } = card.dataset;
         const index = projects.findIndex((project) => project.id === id);
         projects.splice(index, 1);
-        displayProjects.splice(index, 1);
-
+        displayProjects = projects;
+        
         saveProjects(projects);
         updateDisplay();
       });
