@@ -1,11 +1,13 @@
 import { v4 as uuidv4 } from "uuid";
+import { DateTime } from "luxon";
 import Todo from "./Todo";
+
 
 class Project {
   constructor(props) {
     this.title = props.title;
     this.description = props.description;
-    this.dueDate = props.dueDate;
+    this.dueDate = DateTime.fromISO(props.dueDate).toISO();
     this.priority = props.priority;
     this.list = [];
     this.id = uuidv4();
