@@ -1,6 +1,6 @@
+import { DateTime } from "luxon";
 import TodoCard from "./TodoCard";
 import muiClose from "../../assets/mui_close.svg";
-
 
 const ProjectCard = (project) => {
   const container = document.createElement("div");
@@ -26,7 +26,7 @@ const ProjectCard = (project) => {
 
   const dueDate = document.createElement("p");
   dueDate.className = "card-due-date";
-  dueDate.textContent = project.dueDate;
+  dueDate.textContent = DateTime.fromISO(project.dueDate).toISODate();
 
   const priority = document.createElement("p");
   priority.className = "card-priority";

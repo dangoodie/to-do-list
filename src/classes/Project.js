@@ -7,7 +7,7 @@ class Project {
   constructor(props) {
     this.title = props.title;
     this.description = props.description;
-    this.dueDate = DateTime.fromISO(props.dueDate).toISO();
+    this.dueDate = DateTime.fromISO(props.dueDate);
     this.priority = props.priority;
     this.list = [];
     this.id = uuidv4();

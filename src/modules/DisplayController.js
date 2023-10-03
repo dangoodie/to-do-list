@@ -1,3 +1,4 @@
+import { DateTime } from "luxon";
 import MainContainer from "../components/Main/MainContainer";
 import SideBar from "../components/Sidebar/Sidebar";
 import Project from "../classes/Project";
@@ -97,6 +98,7 @@ const DisplayController = (props) => {
         const project = projects.find((proj) => proj.id === projectId);
         project.removeListItem(id);
         saveProjects(projects);
+        displayProjects = projects
         updateDisplay();
       });
     });
@@ -139,6 +141,31 @@ const DisplayController = (props) => {
       updateDisplay();
     });
 
+    // Handle Today Projects button
+    const todayProjectsBtn = document.querySelector(".today-projects");
+    todayProjectsBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      displayProjects = [];
+      const now = DateTime.now();
+
+      projects.forEach((project) => {
+        const dueDate = DateTime.fromISO(project.dueDate);
+        const diff = dueDate.diff(now, "days").toObject();
+        if (diff.days < 1) {
+          displayProjects.push(project);
+        }
+      });
+      updateDisplay();
+    });
+
+    // Handle This Week Projects button
+    const thisWeekProjectsBtn = document.querySelector(".this-week-projects");
+    thisWeekProjectsBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log("This Week Projects clicked!");
+    });
+
     // Handles Individual Project buttons
     const projectBtns = document.querySelectorAll(".project-btn");
     projectBtns.forEach((btn) => {
@@ -150,8 +177,7 @@ const DisplayController = (props) => {
         displayProjects = [project];
         updateDisplay();
       });
-    })
-
+    });
   }
 
   // Initial display

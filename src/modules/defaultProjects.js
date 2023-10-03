@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 import Project from "../classes/Project";
 
 const today = DateTime.now().toISO();
-const tomorrow = DateTime.now().plus({ days: 1 }).toISO();
+const laterThisWeek = DateTime.now().plus({ days: 2 }).toISO();
 const nextWeek = DateTime.now().plus({ days: 8 }).toISO();
 
 const defaultProjects = [];
@@ -16,7 +16,7 @@ const project1 = new Project({
 const project2 = new Project({
   title: "Project 2",
   description: "This is project 2",
-  dueDate: tomorrow,
+  dueDate: laterThisWeek,
   priority: "medium",
 });
 
