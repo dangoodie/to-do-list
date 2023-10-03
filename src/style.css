@@ -31,6 +31,10 @@
     @apply bg-indigo-600;
   }
 
+  .sidebar-button.active {
+    @apply bg-indigo-600;
+  }
+
   .main-container {
     @apply flex flex-col w-screen h-screen;
   }
