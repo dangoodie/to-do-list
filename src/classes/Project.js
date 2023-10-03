@@ -10,7 +10,7 @@ class Project {
     this.list = [];
     this.id = uuidv4();
   }
-
+  
   addListItem(props) {
     const { title, description, dueDate, priority, note, checklist } = props;
     const newTodo = new Todo(

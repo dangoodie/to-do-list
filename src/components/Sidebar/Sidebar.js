@@ -9,9 +9,9 @@ const SideBar = (props) => {
   addIcon.src = muiAdd;
 
   const addBtn = { title: "+", className: "add-project", img: addIcon };
-  const allBtn = { title: "All", className: "all" };
-  const todayBtn = { title: "Today", className: "today" };
-  const weekBtn = { title: "This Week", className: "this-week" };
+  const allBtn = { title: "All", className: "all-projects" };
+  const todayBtn = { title: "Today", className: "today-projects" };
+  const weekBtn = { title: "This Week", className: "this-week-projects" };
 
   container.append(
     SidebarButton(addBtn),
@@ -21,7 +21,8 @@ const SideBar = (props) => {
   );
 
   props.projects.forEach((project) => {
-    container.appendChild(SidebarButton(project));
+    const newProject = { ...project, className: "project-btn" };
+    container.appendChild(SidebarButton(newProject));
   });
 
   return container;

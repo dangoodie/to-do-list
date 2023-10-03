@@ -9,27 +9,13 @@ const DisplayController = (props) => {
   const { projects } = props;
   const contentDiv = document.querySelector("#content");
 
+  let displayProjects = projects;
+
   function updateDisplay() {
     contentDiv.innerHTML = "";
     contentDiv.appendChild(SideBar({ projects }));
-    contentDiv.appendChild(MainContainer({ projects }));
+    contentDiv.appendChild(MainContainer({ projects: displayProjects }));
     contentDiv.appendChild(Modal());
-
-    // Handles new project button
-    function handleAddBtn(event) {
-      event.preventDefault();
-
-      const modalBg = document.querySelector(".modal-bg");
-      modalBg.classList.add("show");
-
-      const modalClose = document.querySelector(".modal-close-btn");
-      modalClose.addEventListener("click", () => {
-        modalBg.classList.remove("show");
-      });
-    }
-    
-    const newProjectBtn = document.querySelector(".add-project");
-    newProjectBtn.addEventListener("click", handleAddBtn);
 
     // Handles new project data from modal
     const newProjectForm = document.querySelector(".modal-form");
@@ -126,7 +112,49 @@ const DisplayController = (props) => {
         dropdownContent.classList.toggle("hide");
       });
     });
+
+    // Sidebar button functions
+
+    // Handles new project button
+    function handleAddBtn(event) {
+      event.preventDefault();
+
+      const modalBg = document.querySelector(".modal-bg");
+      modalBg.classList.add("show");
+
+      const modalClose = document.querySelector(".modal-close-btn");
+      modalClose.addEventListener("click", () => {
+        modalBg.classList.remove("show");
+      });
+    }
+
+    const newProjectBtn = document.querySelector(".add-project");
+    newProjectBtn.addEventListener("click", handleAddBtn);
+
+    // Handles All Projects button
+    const allProjectsBtn = document.querySelector(".all-projects");
+    allProjectsBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      displayProjects = projects;
+      updateDisplay();
+    });
+
+    // Handles Individual Project buttons
+    const projectBtns = document.querySelectorAll(".project-btn");
+    projectBtns.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const { id } = btn.dataset;
+        const project = projects.find((proj) => proj.id === id);
+        displayProjects = [project];
+        updateDisplay();
+      });
+    })
+
   }
+
+  // Initial display
   updateDisplay();
 };
 
