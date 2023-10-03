@@ -30,6 +30,10 @@ class Project {
   removeListItem(id) {
     this.list = this.list.filter((todo) => todo.id !== id);
   }
+
+  getListLength() {
+    return this.list.length;
+  }
 }
 
 export default Project;

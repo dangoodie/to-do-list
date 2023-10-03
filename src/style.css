@@ -19,6 +19,20 @@
     @apply sticky top-0 left-0 h-screen w-auto m-0 p-2 flex flex-col bg-zinc-800;
   }
 
+  .sidebar .logo-container {
+    @apply flex flex-row h-10 w-60;
+  }
+
+  .sidebar .logo-img {
+    @apply flex items-center justify-center mr-2;
+    height: auto;
+    width: 30px;
+  }
+
+  .sidebar .logo-text {
+    @apply flex items-center justify-center  text-white text-center font-bold text-lg;
+  }
+
   .sidebar-button {
     @apply relative flex items-center justify-start p-4 h-10 w-60 text-white text-center font-medium rounded-lg my-1;
   }
