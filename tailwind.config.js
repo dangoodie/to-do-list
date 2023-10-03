@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "space-mono": ["'Space Mono'", "monospace"],
+        "Red Hat Display": ["'Red Hat Display'", "sans-serif"],
       },
     },
   },
