@@ -32,15 +32,15 @@ function storageAvailable(type) {
 // saves an array of projects to localStorage
 const saveProjects = (projects) => {
   if (!storageAvailable("localStorage")) {
-    return;
+    throw new Error("localStorage is not available");
   }
-
   localStorage.setItem("projects", JSON.stringify(projects));
 };
 
 // returns an array of projects from localStorage
 const getProjects = () => {
   const projects = [];
+  // if localStorage is not available, add default projects
   if (!storageAvailable("localStorage")) {
     defaultProjects.forEach((project) => {
       projects.push(project);
@@ -48,26 +48,32 @@ const getProjects = () => {
     return projects;
   }
 
+  // get projects from localStorage and parse them
   const projectsJSON = localStorage.getItem("projects");
   const parsedProjects = JSON.parse(projectsJSON);
 
+  // if there are no projects in localStorage, add default projects
   if (!parsedProjects || parsedProjects.length === 0) {
     defaultProjects.forEach((project) => {
       projects.push(project);
       saveProjects(projects);
     });
+    // if there are projects in localStorage, add them to the projects array
   } else {
     parsedProjects.forEach((project) => {
+      // create a new Project object for each project in localStorage
       const tempProject = new Project(project);
 
+      // add each todo item to the project
       project.list.forEach((todo) => {
         tempProject.addListItem(todo);
       });
-
+      // add the Project object to the projects array
       projects.push(tempProject);
     });
   }
 
+  // return the projects array
   return projects;
 };
 
