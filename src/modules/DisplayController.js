@@ -1,4 +1,4 @@
-import { DateTime } from "luxon";
+// import { DateTime } from "luxon";
 import MainContainer from "../components/Main/MainContainer";
 import SideBar from "../components/Sidebar/Sidebar";
 import Project from "../classes/Project";
@@ -45,7 +45,7 @@ const DisplayController = (props) => {
         const index = projects.findIndex((project) => project.id === id);
         projects.splice(index, 1);
         displayProjects.splice(index, 1);
-        
+
         saveProjects(projects);
         updateDisplay();
       });
@@ -82,7 +82,7 @@ const DisplayController = (props) => {
           const project = projects.find((proj) => proj.id === id);
           project.addListItem(values);
           saveProjects(projects);
-    
+
           updateDisplay();
         });
       });
@@ -149,16 +149,12 @@ const DisplayController = (props) => {
     todayProjectsBtn.addEventListener("click", (event) => {
       event.preventDefault();
 
-      displayProjects = [];
-      const now = DateTime.now();
-
-      projects.forEach((project) => {
-        const dueDate = DateTime.fromISO(project.dueDate);
-        const diff = dueDate.diff(now, "days").toObject();
-        if (diff.days < 1) {
-          displayProjects.push(project);
-        }
+      displayProjects = projects.filter((project) => {
+        const { dueDate } = project;
+        const diff = dueDate.diffNow("days").toObject();
+        return diff.days < 1;
       });
+
       updateDisplay();
     });
 
@@ -166,7 +162,14 @@ const DisplayController = (props) => {
     const thisWeekProjectsBtn = document.querySelector(".this-week-projects");
     thisWeekProjectsBtn.addEventListener("click", (event) => {
       event.preventDefault();
-      console.log("This Week Projects clicked!");
+
+      displayProjects = projects.filter((project) => {
+        const { dueDate } = project;
+        const diff = dueDate.diffNow("days").toObject();
+        return diff.days <= 7;
+      });
+
+      updateDisplay();
     });
 
     // Handles Individual Project buttons
