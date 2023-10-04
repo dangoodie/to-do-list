@@ -4,17 +4,13 @@ import Project from "../classes/Project";
 import Modal from "../components/Main/Modal";
 import { saveProjects } from "./localStorageHandler";
 import AddTodoForm from "../components/Main/AddTodo";
-
-function setActive(selector = ".all-projects") {
-  const btn = document.querySelector(selector);
-  btn.classList.add("active");
-}
+import setActive from "./activeHandler";
 
 const DisplayController = (props) => {
   const { projects } = props;
   const contentDiv = document.querySelector("#content");
-  
-  let displayProjects = projects;
+
+  let displayProjects = [projects[0]];
 
   function updateDisplay() {
     contentDiv.innerHTML = "";
@@ -35,7 +31,10 @@ const DisplayController = (props) => {
       const newProject = new Project(values);
       projects.push(newProject);
       saveProjects(projects);
+
+      displayProjects = [newProject];
       updateDisplay();
+      setActive(newProject);
     });
 
     // Handles project card close button
@@ -48,10 +47,17 @@ const DisplayController = (props) => {
         const { id } = card.dataset;
         const index = projects.findIndex((project) => project.id === id);
         projects.splice(index, 1);
-        displayProjects = projects;
+
+        if (projects.length === 0) {
+          displayProjects = [];
+        } else {
+          displayProjects = [projects[0]];
+        }
 
         saveProjects(projects);
         updateDisplay();
+
+        setActive(displayProjects[0]);
       });
     });
 
@@ -140,48 +146,48 @@ const DisplayController = (props) => {
     const newProjectBtn = document.querySelector(".add-project");
     newProjectBtn.addEventListener("click", handleAddBtn);
 
-    // Handles All Projects button
-    const allProjectsBtn = document.querySelector(".all-projects");
-    allProjectsBtn.addEventListener("click", (event) => {
-      event.preventDefault();
+    // // Handles All Projects button
+    // const allProjectsBtn = document.querySelector(".all-projects");
+    // allProjectsBtn.addEventListener("click", (event) => {
+    //   event.preventDefault();
 
-      displayProjects = projects;
-      updateDisplay();
+    //   displayProjects = projects;
+    //   updateDisplay();
 
-      setActive(".all-projects");
-    });
+    //   setActive(".all-projects");
+    // });
 
-    // Handle Today Projects button
-    const todayProjectsBtn = document.querySelector(".today-projects");
-    todayProjectsBtn.addEventListener("click", (event) => {
-      event.preventDefault();
+    // // Handle Today Projects button
+    // const todayProjectsBtn = document.querySelector(".today-projects");
+    // todayProjectsBtn.addEventListener("click", (event) => {
+    //   event.preventDefault();
 
-      displayProjects = projects.filter((project) => {
-        const { dueDate } = project;
-        const diff = dueDate.diffNow("days").toObject();
-        return diff.days < 1;
-      });
+    //   displayProjects = projects.filter((project) => {
+    //     const { dueDate } = project;
+    //     const diff = dueDate.diffNow("days").toObject();
+    //     return diff.days < 1;
+    //   });
 
-      updateDisplay();
+    //   updateDisplay();
 
-      setActive(".today-projects");
-    });
+    //   setActive(".today-projects");
+    // });
 
-    // Handle This Week Projects button
-    const thisWeekProjectsBtn = document.querySelector(".this-week-projects");
-    thisWeekProjectsBtn.addEventListener("click", (event) => {
-      event.preventDefault();
+    // // Handle This Week Projects button
+    // const thisWeekProjectsBtn = document.querySelector(".this-week-projects");
+    // thisWeekProjectsBtn.addEventListener("click", (event) => {
+    //   event.preventDefault();
 
-      displayProjects = projects.filter((project) => {
-        const { dueDate } = project;
-        const diff = dueDate.diffNow("days").toObject();
-        return diff.days <= 7;
-      });
+    //   displayProjects = projects.filter((project) => {
+    //     const { dueDate } = project;
+    //     const diff = dueDate.diffNow("days").toObject();
+    //     return diff.days <= 7;
+    //   });
 
-      updateDisplay();
+    //   updateDisplay();
 
-      setActive(".this-week-projects");
-    });
+    //   setActive(".this-week-projects");
+    // });
 
     // Handles Individual Project buttons
     const projectBtns = document.querySelectorAll(".project-btn");
@@ -194,8 +200,7 @@ const DisplayController = (props) => {
         displayProjects = [project];
 
         updateDisplay();
-
-        setActive(`.project-btn[data-id="${id}"]`);
+        setActive(project);
       });
     });
   }
@@ -203,8 +208,8 @@ const DisplayController = (props) => {
   // Initial display
   updateDisplay();
 
-  // set All Projects as default active button
-  setActive();
-}
+  // set First project as default active button
+  setActive(displayProjects[0]);
+};
 
 export default DisplayController;

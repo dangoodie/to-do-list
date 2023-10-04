@@ -6,6 +6,7 @@ const SearchBar = () => {
   input.type = "text";
   input.placeholder = "Search";
   input.className = "search-input";
+  input.name = "search";
 
   container.appendChild(input);
 
